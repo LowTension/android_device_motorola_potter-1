@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/motorola/potter/potter-vendor.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/viper/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -31,7 +31,7 @@ TARGET_SCREEN_HEIGHT := 1920
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := potter
-PRODUCT_NAME := lineage_potter
+PRODUCT_NAME := viper_potter
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
@@ -41,3 +41,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=motorola/potter/potter:7.0/NPN25.137-35/37:user/release-keys \
     PRIVATE_BUILD_DESC="potter-7.0/NPN25.137-35/37:user/release-keys" \
     PRODUCT_NAME="Moto G5 Plus"
+
+# Support OTA ViperOS
+ro.ota.manifest=https://raw.githubusercontent.com/Viper0S/android_vendor_ViperOTA/n-mr1/$(PRODUCT_NAME).xml
+
+# Support Poison for compile
+PURE_POISON=true
