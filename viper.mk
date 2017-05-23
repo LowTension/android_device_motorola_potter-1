@@ -42,8 +42,14 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="potter-7.0/NPN25.137-35/37:user/release-keys" \
     PRODUCT_NAME="Moto G5 Plus"
 
-# Support OTA ViperOS
-ro.ota.manifest=https://raw.githubusercontent.com/Viper0S/android_vendor_ViperOTA/n-mr1/$(PRODUCT_NAME).xml
-
 # Support Poison for compile
-PURE_POISON=true
+export PURE_POISON=true
+
+# Support Official
+export VIPER_BUILD_TYPE=Official
+
+# OTAUpdate
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ota.romname=$(PRODUCT_NAME) \
+    ro.ota.version=$(shell date +%Y%m%d) \
+ro.ota.manifest=https://raw.githubusercontent.com/Viper0S/android_vendor_ViperOTA/n-mr1/$(PRODUCT_NAME).xml
